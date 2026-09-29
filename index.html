@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>董熠斌 · 视觉设计师</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FF8A00'/><circle cx='16' cy='16' r='8' fill='white' stroke='black' stroke-width='4'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --black:#111111;
+  --ink:#1a1a1a;
+  --gray:#6b6b6b;
+  --paper:#F4F6EF;
+  --coral:#FF8A00;
+  --blue:#00A86B;
+  --sky:#3BB273;
+  --yellow:#FFB52E;
+  --purple:#2FA35E;
+  --lime:#9BE03A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px}
+.page{display:none}
+.page.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ===== 通用 ===== */
+.hl{display:inline-block;padding:2px 14px;border-radius:7px;color:#fff;font-weight:900;line-height:1.25}
+.hl-coral{background:var(--coral)}
+.hl-blue{background:var(--blue)}
+.hl-purple{background:var(--purple)}
+.hl-yellow{background:var(--yellow);color:var(--ink)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:16px;font-weight:700;
+  padding:15px 30px;border-radius:14px;
+  border:2.5px solid var(--black);
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn svg{width:18px;height:18px}
+.btn-dark{background:var(--black);color:#fff;box-shadow:4px 4px 0 var(--black)}
+.btn-dark:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(17,17,17,.25)}
+.btn-outline{background:#fff;color:var(--ink);box-shadow:4px 4px 0 var(--black)}
+.btn-outline:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(17,17,17,.18);background:var(--paper)}
+.btn-light{background:#fff;color:var(--ink);box-shadow:4px 4px 0 rgba(255,255,255,.25)}
+.btn-light:hover{transform:translate(-2px,-2px);background:var(--paper)}
+.btn-yellow{background:var(--yellow);color:var(--ink);box-shadow:4px 4px 0 var(--black)}
+.btn-yellow:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(17,17,17,.25)}
+
+.sec-head{max-width:660px;margin:0 auto 56px;text-align:center}
+.sec-head h2{font-size:clamp(28px,4vw,44px);font-weight:900;line-height:1.3}
+.sec-head p{margin-top:16px;color:var(--gray);font-size:15px}
+.section{padding:96px 0}
+
+/* 滚动进入动画 */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+.bar-fill{transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.skill.in .bar-fill{width:var(--w)}
+
+/* 打字光标 */
+.typing-cursor{
+  display:inline-block;width:4px;height:.9em;
+  background:var(--black);margin-left:3px;
+  vertical-align:text-bottom;border-radius:1px;
+  animation:cursor-blink 1s step-end infinite;
+}
+@keyframes cursor-blink{50%{opacity:0}}
+
+/* ===== 导航 ===== */
+.topbar{position:sticky;top:14px;z-index:100;padding:16px 16px 0}
+.nav{
+  max-width:720px;margin:0 auto;
+  display:flex;align-items:center;gap:6px;
+  background:#fff;border:2.5px solid var(--black);border-radius:999px;
+  padding:8px 10px 8px 18px;
+  box-shadow:0 5px 0 var(--black);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;margin-right:8px;font-weight:900;font-size:17px}
+.nav-ring{width:28px;height:28px;border:3.5px solid var(--black);border-radius:50%;flex:none}
+.nav-links{display:flex;gap:2px;justify-content:center;flex:1}
+.nav-links a{
+  padding:8px 15px;border-radius:999px;font-size:15px;font-weight:700;color:var(--ink);
+  transition:background .15s ease,color .15s ease;white-space:nowrap;
+}
+.nav-links a:hover{background:var(--paper)}
+.nav-links a.active{background:var(--black);color:#fff}
+.nav-cta{
+  width:42px;height:42px;border-radius:50%;background:var(--black);
+  display:grid;place-items:center;flex:none;
+  transition:transform .18s ease;
+}
+.nav-cta:hover{transform:rotate(-8deg) scale(1.05)}
+.nav-cta svg{width:19px;height:19px}
+
+/* ===== 首页 Hero ===== */
+.hero{padding:72px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(36px,5.2vw,64px);font-weight:900;line-height:1.2;letter-spacing:-.5px}
+.hero .sub{margin-top:24px;color:var(--gray);font-size:16px;max-width:480px}
+.hero-actions{margin-top:36px;display:flex;gap:18px;flex-wrap:wrap}
+.hero-photo{
+  position:relative;justify-self:end;
+  width:min(420px,90%);aspect-ratio:1/1;
+  border:3px solid var(--black);border-radius:30px;
+  overflow:hidden;background:var(--yellow);
+  box-shadow:12px 12px 0 var(--black);
+  transform:rotate(2.5deg);
+  transition:box-shadow .3s ease;
+}
+.hero-photo:hover{
+  animation:photo-pop .6s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes photo-pop{
+  0%{transform:rotate(2.5deg) scale(1)}
+  30%{transform:rotate(-4deg) scale(1.05) translateY(-8px)}
+  60%{transform:rotate(4deg) scale(1.03) translateY(-4px)}
+  100%{transform:rotate(2.5deg) scale(1)}
+}
+.hero-photo:hover{box-shadow:14px 14px 0 var(--blue)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+
+/* 斜向滚动条 */
+.band-deco{padding:64px 0 10px;overflow:hidden}
+.band{
+  background:var(--black);
+  transform:rotate(-3deg) scale(1.08);
+  padding:20px 0;overflow:hidden;
+  border-top:3px solid var(--black);border-bottom:3px solid var(--black);
+}
+.marquee{display:flex;align-items:center;gap:52px;width:max-content;animation:marquee 26s linear infinite}
+.band:hover .marquee{animation-play-state:paused}
+.marquee span{
+  display:inline-flex;align-items:center;gap:14px;
+  color:#fff;font-size:21px;font-weight:700;white-space:nowrap;
+}
+.marquee svg{width:24px;height:24px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ===== 服务卡片 ===== */
+.services{padding-top:110px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{
+  border:2.5px solid var(--black);border-radius:22px;overflow:hidden;
+  background:#fff;box-shadow:7px 7px 0 var(--black);
+  transition:transform .2s ease,box-shadow .2s ease;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--black)}
+.card-visual{
+  background:var(--paper);border-bottom:2.5px solid var(--black);
+  height:212px;display:grid;place-items:center;padding:24px;
+}
+.card-visual svg{width:100%;height:100%;max-height:170px}
+.card-body{padding:24px 26px 28px}
+.card-body h3{font-size:21px;font-weight:900;margin-bottom:10px}
+.card-body p{color:var(--gray);font-size:14.5px}
+.card-cta{
+  background:var(--yellow);text-align:center;
+  padding:38px 28px;gap:18px;align-items:center;justify-content:center;
+}
+.card-cta .ico{
+  width:74px;height:74px;border:2.5px solid var(--black);border-radius:16px;
+  display:grid;place-items:center;background:#fff;
+}
+.card-cta h3{font-size:23px;font-weight:900}
+.card-cta p{color:rgba(17,17,17,.72);font-size:14.5px;max-width:260px}
+.card-cta .btn{margin-top:6px}
+
+/* ===== 关于我 ===== */
+.about-intro{padding:100px 0 80px}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.circle-photo{
+  width:min(440px,88%);aspect-ratio:1;margin:0 auto;
+  border-radius:50%;overflow:hidden;
+  border:3px solid var(--black);box-shadow:12px 12px 0 var(--black);
+  background:var(--coral);
+  position:relative;
+}
+.circle-photo img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
+.circle-photo::after{
+  content:'';position:absolute;top:0;left:0;width:100%;height:100%;
+  background:var(--coral);z-index:0;
+}
+.circle-photo{transition:transform .3s ease,box-shadow .3s ease}
+.circle-photo:hover{transform:translate(-4px,-4px) scale(1.03);box-shadow:16px 16px 0 var(--blue)}
+.split h2{font-size:clamp(30px,3.6vw,42px);font-weight:900;line-height:1.3}
+.split .lead{margin-top:20px;color:var(--gray);font-size:15.5px}
+.feature{display:flex;gap:16px;margin-top:28px}
+.feature .mark{width:22px;height:22px;border:2.5px solid var(--black);border-radius:6px;margin-top:4px;flex:none}
+.feature h4{font-size:18px;font-weight:900}
+.feature p{color:var(--gray);font-size:14px;margin-top:4px}
+.split .btn{margin-top:36px}
+
+.stats{padding:10px 0 90px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.stat{
+  border:2.5px solid var(--black);border-radius:20px;padding:28px 20px;text-align:center;
+  box-shadow:6px 6px 0 var(--black);background:#fff;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.stat:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--black)}
+.stat .num{font-size:38px;font-weight:900;line-height:1.1}
+.stat .lbl{margin-top:8px;font-size:14px;color:var(--gray);font-weight:500}
+
+.skills{background:var(--paper);border-top:2.5px solid var(--black);border-bottom:2.5px solid var(--black);padding:96px 0}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:960px;margin:0 auto}
+.skill{
+  background:#fff;border:2.5px solid var(--black);border-radius:18px;
+  padding:22px 26px;box-shadow:6px 6px 0 var(--black);
+}
+.skill-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.skill-top h4{font-size:17px;font-weight:900}
+.skill-top b{font-size:15px;font-weight:900}
+.bar{height:16px;border:2.5px solid var(--black);border-radius:999px;background:#fff;overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;width:0;opacity:1;transform:none}
+.bar-fill.in{width:var(--w)}
+
+.testi{padding:96px 0}
+.testi-box{display:flex;align-items:center;justify-content:center;gap:0;max-width:980px;margin:0 auto}
+.bubble{
+  position:relative;flex:1;max-width:420px;
+  background:#fff;border:2.5px solid var(--black);border-radius:24px;
+  padding:44px 96px 36px 38px;box-shadow:8px 8px 0 var(--black);
+}
+.quote-ico{
+  position:absolute;top:-26px;left:30px;
+  width:56px;height:56px;border-radius:50%;background:var(--black);
+  display:grid;place-items:center;
+}
+.quote-ico svg{width:26px;height:26px}
+.bubble blockquote{font-size:16px;color:#3a3a3a}
+.bubble .who{margin-top:22px}
+.bubble .who b{display:block;font-size:16px;font-weight:900}
+.bubble .who small{color:var(--gray);font-size:13.5px}
+.testi-avatar{
+  width:260px;height:260px;flex:none;margin-left:-64px;
+  border-radius:50%;overflow:hidden;border:3px solid var(--black);
+  box-shadow:9px 9px 0 var(--black);background:var(--coral);z-index:2;
+}
+.testi-avatar img{width:100%;height:100%;object-fit:cover}
+
+/* ===== 时间线 ===== */
+.timeline-page{background:var(--black);color:#fff;padding:104px 0}
+.timeline-page .sec-head p{color:#a8a8a8}
+.tl-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start}
+.tl-left{position:sticky;top:130px}
+.tl-left h2{font-size:clamp(30px,4vw,44px);font-weight:900;line-height:1.3}
+.tl-left p{margin-top:22px;color:#a8a8a8;font-size:15px;max-width:400px}
+.tl-left .btn{margin-top:34px}
+.tl-list{display:flex;flex-direction:column;gap:24px}
+.tl-item{
+  background:#fff;color:var(--ink);
+  border:2.5px solid #fff;border-radius:18px;
+  box-shadow:7px 7px 0 rgba(255,255,255,.18);
+  overflow:hidden;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.tl-item:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 rgba(255,255,255,.3)}
+.tl-top{display:flex;justify-content:space-between;align-items:center;padding:18px 26px}
+.tl-date{font-weight:900;font-size:15.5px}
+.tl-ico{
+  width:44px;height:44px;border-radius:50%;border:2.5px solid var(--black);
+  display:grid;place-items:center;
+}
+.tl-ico svg{width:20px;height:20px}
+.tl-body{border-top:2.5px solid var(--black);padding:22px 26px 26px}
+.tl-body h3{font-size:20px;font-weight:900}
+.tl-body p{margin-top:8px;color:var(--gray);font-size:14px}
+
+/* ===== 作品 ===== */
+.works{padding:104px 0 80px}
+.filters{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.chip{
+  border:2.5px solid var(--black);border-radius:999px;
+  padding:9px 22px;font-size:14.5px;font-weight:700;background:#fff;
+  transition:all .15s ease;
+}
+.chip:hover{background:var(--paper)}
+.chip.active{background:var(--black);color:#fff;box-shadow:3px 3px 0 rgba(17,17,17,.3)}
+.project{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:2.5px solid var(--black);border-radius:26px;overflow:hidden;
+  box-shadow:9px 9px 0 var(--black);background:#fff;margin-bottom:38px;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.project:hover{transform:translate(-3px,-3px);box-shadow:12px 12px 0 rgba(17,17,17,.9)}
+.project.hide{display:none}
+.p-info{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+.p-brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px}
+.p-brand .dot{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;border:2.5px solid var(--black)}
+.p-brand .dot svg{width:14px;height:14px}
+.p-tag{
+  align-self:flex-start;margin-top:20px;background:var(--black);color:#fff;
+  font-size:12.5px;font-weight:700;padding:6px 16px;border-radius:999px;
+}
+.p-info h3{margin-top:18px;font-size:clamp(22px,2.4vw,28px);font-weight:900;line-height:1.35}
+.p-info p{margin-top:14px;color:var(--gray);font-size:14.5px}
+.p-link{
+  margin-top:26px;display:inline-flex;align-items:center;gap:8px;
+  font-weight:900;font-size:15px;border-bottom:3px solid var(--ink);
+  padding-bottom:3px;align-self:flex-start;
+  transition:gap .18s ease;
+}
+.p-link:hover{gap:14px}
+.p-link svg{width:17px;height:17px}
+.p-visual{display:grid;place-items:center;padding:44px;min-height:360px}
+.p-visual svg{width:100%;max-width:430px}
+
+/* ===== 联系条 & 页脚 ===== */
+.contact{
+  background:var(--yellow);border-top:3px solid var(--black);
+  padding:88px 0;text-align:center;
+}
+.contact h2{font-size:clamp(30px,4.4vw,50px);font-weight:900;line-height:1.3}
+.contact p{margin-top:16px;color:rgba(17,17,17,.75);font-size:16px}
+.contact .btn{margin-top:34px;font-size:17px;padding:17px 38px}
+.footer{background:var(--black);color:#fff;padding:72px 0 0}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:56px}
+.f-brand .nav-ring{border-color:#fff}
+.f-brand{display:flex;flex-direction:column;gap:16px}
+.f-brand .row{display:flex;align-items:center;gap:12px;font-weight:900;font-size:19px}
+.f-brand p{color:#a8a8a8;font-size:14px;max-width:300px}
+.f-col h5{font-size:15px;font-weight:900;margin-bottom:18px}
+.f-col a{display:block;color:#a8a8a8;font-size:14.5px;margin-bottom:12px;transition:color .15s ease}
+.f-col a:hover{color:var(--yellow)}
+.f-bottom{border-top:1.5px solid rgba(255,255,255,.15);padding:22px 0;text-align:center;color:#8a8a8a;font-size:13.5px}
+
+/* ===== 响应式 ===== */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:48px;text-align:center}
+  .hero .sub{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-photo{justify-self:center}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr;gap:52px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .tl-grid{grid-template-columns:1fr;gap:44px}
+  .tl-left{position:static}
+  .project{grid-template-columns:1fr}
+  .p-visual{order:-1;min-height:0;padding:36px}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .section,.about-intro{padding:72px 0 60px}
+  .nav-brand b{display:none}
+  .nav{padding:7px 8px 7px 14px;gap:4px}
+  .nav-links a{padding:7px 10px;font-size:13.5px}
+  .nav-cta{width:38px;height:38px}
+  .svc-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .testi-box{flex-direction:column}
+  .bubble{max-width:100%}
+  .testi-avatar{margin:0;width:210px;height:210px;margin-top:-44px}
+  .p-info{padding:36px 28px}
+  .f-grid{grid-template-columns:1fr;gap:36px}
+  .stats-grid{gap:16px}
+  .stat{padding:22px 12px;box-shadow:4px 4px 0 var(--black)}
+}
+@media (prefers-reduced-motion:reduce){
+  .marquee{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 导航 ============ -->
+<header class="topbar">
+  <nav class="nav">
+    <a class="nav-brand" data-go="home" href="#home">
+      <span class="nav-ring"></span>
+    </a>
+    <div class="nav-links">
+      <a href="#home" data-go="home" class="active">首页</a>
+      <a href="#about" data-go="about">关于我</a>
+      <a href="#timeline" data-go="timeline">时间线</a>
+      <a href="#works" data-go="works">我的作品</a>
+    </div>
+    <button class="nav-cta" data-contact title="联系我" aria-label="联系我">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+    </button>
+  </nav>
+</header>
+
+<!-- ============ 首页 ============ -->
+<main id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="reveal">你好，我是<span class="hl hl-coral">董熠斌</span>，<br/>一名<span class="hl hl-blue">视觉设计师</span></h1>
+        <p class="sub reveal">专注于产品包装、电商视觉与线下品牌物料，用兼具手绘质感与创意思维的设计语言，帮助品牌和产品传递自身价值。</p>
+        <div class="hero-actions reveal">
+          <button class="btn btn-dark" data-contact>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            联系我
+          </button>
+          <button class="btn btn-outline" data-go="works">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+            查看作品
+          </button>
+        </div>
+      </div>
+      <div class="hero-photo reveal">
+        <img src="hero-portrait.jpg" alt="董熠斌的卡通形象" />
+      </div>
+    </div>
+  </section>
+
+  <div class="band-deco">
+    <div class="band">
+      <div class="marquee">
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>创意设计</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>排版设计</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>包装设计</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5 11 15l5-6"/></svg>电商视觉</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>交互体验</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>动效设计</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>创意设计</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>排版设计</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>包装设计</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5 11 15l5-6"/></svg>电商视觉</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>交互体验</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>动效设计</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section services">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>我的 <span class="hl hl-coral">专业设计能力</span></h2>
+        <p>从创意到量产，覆盖品牌视觉完整全链路落地。</p>
+      </div>
+      <div class="svc-grid">
+
+        <article class="card reveal">
+          <div class="card-visual">
+            <svg viewBox="0 0 220 170" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+              <!-- 包装全案设计 -->
+              <rect x="60" y="54" width="100" height="88" rx="10" fill="#2FA35E"/>
+              <path d="M60 82h100"/>
+              <rect x="100" y="54" width="20" height="88" fill="#FF8A00"/>
+              <circle cx="110" cy="44" r="11" fill="#FF8A00"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>包装全案设计</h3>
+            <p>从包装创意、手绘插画到打样量产，兼顾视觉美感与印刷工艺，打造可落地的产品包装方案。</p>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-visual">
+            <svg viewBox="0 0 220 170" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+              <!-- 电商视觉设计 -->
+              <g transform="rotate(-4 110 90)">
+                <rect x="55" y="34" width="110" height="102" rx="10" fill="#fff"/>
+                <rect x="69" y="48" width="82" height="40" rx="6" fill="#FFB52E"/>
+                <circle cx="138" cy="60" r="5" fill="#fff" stroke="none"/>
+                <path d="M76 82 L94 62 L106 76 L116 66 L144 82 Z" fill="#FF8A00" stroke="none"/>
+                <path d="M69 100h60M69 112h42" stroke="#9b9b9b" stroke-width="3.5"/>
+                <rect x="69" y="122" width="34" height="12" rx="6" fill="#2FA35E"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>电商视觉设计</h3>
+            <p>负责店铺首页、详情页、营销海报设计，打造高转化的线上商品视觉，适配平台营销活动。</p>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-visual">
+            <svg viewBox="0 0 220 170" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+              <!-- 品牌物料设计 -->
+              <path d="M78 48v92"/>
+              <circle cx="78" cy="42" r="7" fill="#FFB52E"/>
+              <rect x="56" y="140" width="44" height="10" rx="5" fill="#111" stroke="none"/>
+              <path d="M78 54 Q104 42 130 54 Q152 64 172 56 V100 Q152 108 130 98 Q104 86 78 98 Z" fill="#2FA35E"/>
+              <circle cx="125" cy="76" r="10" fill="#FF8A00"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>品牌物料设计</h3>
+            <p>输出品牌 VI、宣传物料、展会整套视觉，统一品牌线上与线下视觉表达。</p>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-visual">
+            <svg viewBox="0 0 220 170" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+              <!-- 手绘插画创作 -->
+              <g transform="rotate(-28 110 85)">
+                <rect x="98" y="28" width="24" height="58" rx="7" fill="#FF8A00"/>
+                <rect x="98" y="86" width="24" height="16" rx="4" fill="#fff"/>
+                <path d="M98 102h24l-12 28z" fill="#2FA35E"/>
+              </g>
+              <circle cx="72" cy="118" r="7" fill="#FFB52E" stroke="none"/>
+              <circle cx="60" cy="92" r="5" fill="#9BE03A" stroke="none"/>
+              <circle cx="152" cy="52" r="5" fill="#FF8A00" stroke="none"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>手绘插画创作</h3>
+            <p>原创手绘插画，用于包装、产品主图与品牌宣传内容，赋予品牌独特视觉风格。</p>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-visual">
+            <svg viewBox="0 0 220 170" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+              <!-- 动效辅助设计 -->
+              <circle cx="110" cy="76" r="40" fill="#fff"/>
+              <path d="M100 56l32 20-32 20z" fill="#FF8A00" stroke="none"/>
+              <rect x="60" y="134" width="100" height="12" rx="6" fill="#2FA35E"/>
+              <rect x="60" y="134" width="42" height="12" rx="6" fill="#fff"/>
+              <circle cx="102" cy="140" r="8" fill="#FF8A00"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>动效辅助设计</h3>
+            <p>通过三维渲染、短视频动效辅助产品展示，丰富品牌视觉的动态表现力。</p>
+          </div>
+        </article>
+
+        <article class="card card-cta reveal">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#111" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+          </div>
+          <h3>期待加入贵司</h3>
+          <p>目前正在寻找视觉设计相关岗位，希望有机会加入团队，用设计为业务创造实际价值。</p>
+          <button class="btn btn-dark" data-contact>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            联系我
+          </button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 关于我 ============ -->
+<main id="page-about" class="page">
+
+  <section class="about-intro">
+    <div class="container split">
+      <div class="circle-photo reveal">
+        <img src="关于我-董熠斌.png?v=2" alt="正在电脑前工作的董熠斌" />
+      </div>
+      <div>
+        <h2 class="reveal">关于<span class="hl hl-blue">我</span>，用<span class="hl hl-coral">创意</span><br/>驱动设计的<span class="hl hl-blue">视觉设计师</span></h2>
+        <p class="lead reveal">我是董熠斌，拥有美术手绘基础，擅长产品包装全链路设计落地，aigc电商平面视觉，品牌线下物料设计，打样跟进到印刷落地；熟悉印刷工艺，可以对接工厂跟进打样，出样，同时掌握动效、视频剪辑、三维辅助设计，我相信好的设计师“克制的创意”。工作之外，我喜欢逛展、摄影和炉石。</p>
+        <div class="feature reveal">
+          <span class="mark" style="background:var(--purple)"></span>
+          <div>
+            <h4>9+ 年设计经验</h4>
+            <p>从空间到平面，再到包装，经历设计行业的多次范式转变。</p>
+          </div>
+        </div>
+        <div class="feature reveal">
+          <span class="mark" style="background:var(--coral)"></span>
+          <div>
+            <h4>50+ 个成功落地项目</h4>
+            <p>做过自主宠物品牌设计，以及多个领域，覆盖文化娱乐、电商、教育、美妆、房产等。</p>
+          </div>
+        </div>
+        <button class="btn btn-dark reveal" data-contact>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          更多关于我
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stat reveal"><div class="num">30+</div><div class="lbl">包装量产案例</div></div>
+      <div class="stat reveal"><div class="num">3</div><div class="lbl">品牌全案主导</div></div>
+      <div class="stat reveal"><div class="num">50+</div><div class="lbl">落地项目</div></div>
+      <div class="stat reveal"><div class="num">9+</div><div class="lbl">年行业经验</div></div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>我的 <span class="hl hl-purple">技能栈</span></h2>
+        <p>设计能力为主，技术理解为辅，能和各部门无缝协作。</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill reveal">
+          <div class="skill-top"><h4>包装全链路设计</h4><b>95%</b></div>
+          <div class="bar"><div class="bar-fill" data-w="95" style="--w:95%;background:var(--blue)"></div></div>
+        </div>
+        <div class="skill reveal">
+          <div class="skill-top"><h4>电商视觉设计</h4><b>90%</b></div>
+          <div class="bar"><div class="bar-fill" data-w="90" style="--w:90%;background:var(--coral)"></div></div>
+        </div>
+        <div class="skill reveal">
+          <div class="skill-top"><h4>品牌视觉设计</h4><b>85%</b></div>
+          <div class="bar"><div class="bar-fill" data-w="85" style="--w:85%;background:var(--yellow)"></div></div>
+        </div>
+        <div class="skill reveal">
+          <div class="skill-top"><h4>手绘插画创作</h4><b>88%</b></div>
+          <div class="bar"><div class="bar-fill" data-w="88" style="--w:88%;background:var(--lime)"></div></div>
+        </div>
+        <div class="skill reveal">
+          <div class="skill-top"><h4>印刷工艺落地</h4><b>80%</b></div>
+          <div class="bar"><div class="bar-fill" data-w="80" style="--w:80%;background:var(--purple)"></div></div>
+        </div>
+        <div class="skill reveal">
+          <div class="skill-top"><h4>三维/动效辅助设计</h4><b>75%</b></div>
+          <div class="bar"><div class="bar-fill" data-w="75" style="--w:75%;background:var(--sky)"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testi">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>领导怎么评价 <span class="hl hl-blue">我的工作</span></h2>
+      </div>
+      <div class="testi-box reveal">
+        <div class="bubble">
+          <div class="quote-ico">
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M10 7H6a3 3 0 0 0-3 3v7h7v-7H6.5A2.5 2.5 0 0 1 9 7.5V7zm11 0h-4a3 3 0 0 0-3 3v7h7v-7h-3.5A2.5 2.5 0 0 1 20 7.5V7z"/></svg>
+          </div>
+          <blockquote>“熠斌在包装与平面上的审美很在线，对细节的把控让人放心。整个合作过程中沟通顺畅、交付稳定，是一次非常愉快的合作。”</blockquote>
+          <div class="who">
+            <b>袁韩宇</b>
+            <small>万柳文化 · 执行董事</small>
+          </div>
+        </div>
+        <div class="testi-avatar">
+          <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Neo-brutalism%20flat%20vector%20illustration%20portrait%20of%20smiling%20young%20Chinese%20man%20with%20round%20glasses%20short%20black%20hair%20and%20prominent%20beard%2C%20same%20face%20shape%20and%20eyes%20style%2C%20wearing%20dark%20business%20suit%20with%20white%20shirt%2C%20solid%20vivid%20blue%20background%2C%20thick%20bold%20black%20outlines%2C%20cartoon%20style%2C%20minimal%2C%20head%20and%20shoulders&image_size=square_hd" alt="领导袁韩宇的卡通形象" />
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 时间线 ============ -->
+<main id="page-timeline" class="page">
+  <section class="timeline-page">
+    <div class="container tl-grid">
+      <div class="tl-left">
+        <h2 class="reveal">回顾我的<br/><span class="hl hl-purple">过往经历</span></h2>
+        <p class="reveal">每一段经历都在回答同一个问题：设计如何真正帮助一个产品、一群用户，以及一家公司。</p>
+        <a class="btn btn-light reveal" href="个人简历.pdf" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+          获取完整简历
+        </a>
+      </div>
+      <div class="tl-list">
+
+        <article class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-date">2026.06 — 2026.09</span>
+            <span class="tl-ico" style="background:var(--coral)"></span>
+          </div>
+          <div class="tl-body">
+            <h3>平面设计 · 兰姿科技</h3>
+            <p>美妆产品拍摄、备案；各类产品手册制作；产品宣传KV、对外营销海报制作；展厅、展会海报和物料内容制作。</p>
+          </div>
+        </article>
+
+        <article class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-date">2020.09 — 2026.04</span>
+            <span class="tl-ico" style="background:var(--sky)"></span>
+          </div>
+          <div class="tl-body">
+            <h3>视觉总监 · 万柳文化/商贸</h3>
+            <p>承接产品包装和平面文创设计，跟进打样落地，输出电商平台主图、详情页；负责线下门店物料，展会活动设计，主VI设计，输出可落地的印刷文件。</p>
+          </div>
+        </article>
+
+        <article class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-date">2018.08 — 2019.07</span>
+            <span class="tl-ico" style="background:var(--blue)"></span>
+          </div>
+          <div class="tl-body">
+            <h3>线上平面 · 蕃茄田艺术</h3>
+            <p>负责早教机构线上运营，宣发、校区物料，线下活动预热推广，后端视觉内容设计。</p>
+          </div>
+        </article>
+
+        <article class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-date">2017.07 — 2018.05</span>
+            <span class="tl-ico" style="background:var(--yellow)"></span>
+          </div>
+          <div class="tl-body">
+            <h3>视觉设计师 · 易眸文化</h3>
+            <p>主要负责视觉平面效果图制作，AE动效制作，PR视频剪辑，品牌UI端设计（偏VR/AR方向）。</p>
+          </div>
+        </article>
+
+        <article class="tl-item reveal">
+          <div class="tl-top">
+            <span class="tl-date">2013.09 — 2017.06</span>
+            <span class="tl-ico" style="background:var(--purple)"></span>
+          </div>
+          <div class="tl-body">
+            <h3>环境艺术设计 · 学士学位</h3>
+            <p>系统学习制图、平面与项目设计，毕业设计获得2017十五届亚洲设计学年奖。</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 作品 ============ -->
+<main id="page-works" class="page">
+  <section class="works">
+    <div class="container">
+      <div class="sec-head reveal">
+        <h2>看看我的 <span class="hl hl-yellow">设计作品集</span></h2>
+        <p>三个代表性项目，涵盖包装设计、电商设计、平面视效。</p>
+      </div>
+
+      <div class="filters reveal">
+        <button class="chip active" data-filter="all">全部</button>
+        <button class="chip" data-filter="packaging">包装设计</button>
+        <button class="chip" data-filter="ecommerce">电商设计</button>
+        <button class="chip" data-filter="graphic">平面视效</button>
+      </div>
+
+      <!-- 项目 1：包装设计 -->
+      <article class="project reveal" data-cat="packaging">
+        <div class="p-info">
+          <div class="p-brand">
+            <span class="dot" style="background:var(--purple)"></span>
+            Packaging Design
+          </div>
+          <span class="p-tag">包装设计</span>
+          <h3><a href="宠物品牌平面包装作品集.pdf" target="_blank" style="color:inherit;text-decoration:none">一枝卜卜宠物产品全链包装</a></h3>
+          <p>主要集中于自有宠物品牌产品的包装设计，研发落地到打样校色。</p>
+          <a class="p-link" href="宠物品牌平面包装作品集.pdf" target="_blank">查看案例
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+        <div class="p-visual" style="background:var(--purple)">
+          <img src="作品-包装设计-01.svg?v=1" alt="一枝卜卜宠物产品全链包装" style="width:80%;height:80%;object-fit:contain;display:block;margin:auto" />
+        </div>
+      </article>
+
+      <!-- 项目 2：电商设计 -->
+      <article class="project reveal" data-cat="ecommerce">
+        <div class="p-info">
+          <div class="p-brand">
+            <span class="dot" style="background:var(--yellow)"></span>
+            E-commerce Design
+          </div>
+          <span class="p-tag">电商设计</span>
+          <h3>电商 AI 视觉体系搭建</h3>
+          <p>统一电商 AI 体系与视觉语言，重构产品形象、任务与电商主视觉，协作效率与视觉效果同时得到显著提升。</p>
+          <a class="p-link" href="#" onclick="return false">查看案例
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+        <div class="p-visual" style="background:var(--coral)">
+          <img src="作品-电商设计-01.svg?v=1" alt="电商 AI 视觉体系搭建" style="width:80%;height:80%;object-fit:contain;display:block;margin:auto" />
+        </div>
+      </article>
+
+      <!-- 项目 3：平面视效 -->
+      <article class="project reveal" data-cat="graphic">
+        <div class="p-info">
+          <div class="p-brand">
+            <span class="dot" style="background:var(--purple)"></span>
+            Graphic Visual Effects
+          </div>
+          <span class="p-tag">平面视效</span>
+          <h3>品牌平面视效与营销物料</h3>
+          <p>围绕品牌 KV、海报与线下物料打造统一的平面视效语言，让每一次视觉露出都有一致的冲击力与记忆点。</p>
+          <a class="p-link" href="#" onclick="return false">查看案例
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+        <div class="p-visual" style="background:var(--yellow)">
+          <img src="作品-平面视效-01.svg?v=1" alt="品牌平面视效与营销物料" style="width:80%;height:80%;object-fit:contain;display:block;margin:auto" />
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<!-- ============ 联系条 & 页脚（所有页面共用） ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="reveal">感谢您花时间了解我<br/>期待能与您进一步交流</h2>
+    <p class="reveal">目前自由接收询问和面试邀约</p>
+    <a class="btn btn-dark reveal" href="mailto:378136076@qq.com">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+      378136076@qq.com
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <div class="row"><span class="nav-ring"></span> 董熠斌</div>
+        <p>视觉设计师，现居杭州。用创意简洁的设计，优化产品，帮助品牌被记住、被喜欢。</p>
+      </div>
+      <div class="f-col">
+        <h5>页面导航</h5>
+        <a href="#home" data-go="home">首页</a>
+        <a href="#about" data-go="about">关于我</a>
+        <a href="#timeline" data-go="timeline">时间线</a>
+        <a href="#works" data-go="works">我的作品</a>
+      </div>
+      <div class="f-col">
+        <h5>联系方式</h5>
+        <a href="mailto:378136076@qq.com">378136076@qq.com</a>
+        <a href="#" onclick="return false">中国 · 杭州</a>
+      </div>
+    </div>
+    <div class="f-bottom">© 2026 董熠斌. 保留所有权利。</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages = document.querySelectorAll('.page');
+  var links = document.querySelectorAll('.nav-links a');
+
+  function reObserve(scope){
+    scope.querySelectorAll('.reveal:not(.in)').forEach(function(el){
+      io.unobserve(el);
+      io.observe(el);
+    });
+  }
+
+  function go(tab){
+    pages.forEach(function(p){ p.classList.toggle('active', p.id === 'page-' + tab); });
+    links.forEach(function(a){ a.classList.toggle('active', a.dataset.go === tab); });
+    window.scrollTo({top:0, behavior:'auto'});
+    history.replaceState(null, '', '#' + tab);
+    var current = document.getElementById('page-' + tab);
+    // 确保切页后首屏元素立即触发进入动画
+    setTimeout(function(){ reObserve(current); }, 60);
+  }
+  // 暴露到全局，方便调试与直接调用
+  window.go = go;
+
+  // 监听 hash 变化，支持直接输入 #about / #timeline / #works 等切换页面
+  window.addEventListener('hashchange', function(){
+    var tab = (location.hash || '').replace('#','');
+    if(['home','about','timeline','works'].indexOf(tab) > -1) go(tab);
+  });
+
+  document.querySelectorAll('[data-go]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      go(el.dataset.go);
+    });
+  });
+
+  document.querySelectorAll('[data-contact]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  // 初始 hash 定位
+  var initial = (location.hash || '').replace('#','');
+  if(['home','about','timeline','works'].indexOf(initial) > -1) go(initial);
+
+  // 作品筛选
+  var chips = document.querySelectorAll('.chip');
+  var projects = document.querySelectorAll('.project');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var f = chip.dataset.filter;
+      projects.forEach(function(p){
+        p.classList.toggle('hide', f !== 'all' && p.dataset.cat.indexOf(f) === -1);
+      });
+    });
+  });
+
+  // 滚动进入动画
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // 兜底：标签页从后台切回前台或浏览器不支持 IO 时，直接显示全部内容
+  function revealAll(){
+    document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); });
+  }
+  if(!('IntersectionObserver' in window)){
+    revealAll();
+  } else {
+    document.addEventListener('visibilitychange', function(){
+      if(!document.hidden) revealAll();
+    });
+  }
+
+  // ===== 打字效果（通用） =====
+  function setupTypewriter(el, segs, delay){
+    if(!el) return;
+    var cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    var started = false;
+
+    function startType(){
+      if(started) return;
+      started = true;
+      el.innerHTML = '';
+      el.appendChild(cursor);
+      var si = 0, ci = 0, curSpan = null;
+
+      function next(){
+        if(si >= segs.length){ cursor.remove(); return; }
+        var seg = segs[si];
+        if(ci === 0){
+          if(seg.t === '\n'){
+            el.insertBefore(document.createElement('br'), cursor);
+            si++; ci = 0; next(); return;
+          }
+          curSpan = seg.c ? (function(){
+            var s = document.createElement('span');
+            s.className = seg.c;
+            el.insertBefore(s, cursor);
+            return s;
+          })() : null;
+        }
+        if(ci < seg.t.length){
+          var ch = document.createTextNode(seg.t[ci]);
+          if(curSpan) curSpan.appendChild(ch);
+          else el.insertBefore(ch, cursor);
+          ci++;
+          setTimeout(next, 150);
+        } else {
+          si++; ci = 0; next();
+        }
+      }
+      setTimeout(next, delay || 600);
+    }
+
+    if(el.classList.contains('in')){
+      startType();
+    } else {
+      var obs = new MutationObserver(function(){
+        if(el.classList.contains('in')){
+          obs.disconnect();
+          startType();
+        }
+      });
+      obs.observe(el, {attributes:true, attributeFilter:['class']});
+    }
+  }
+
+  // 首页主标题
+  setupTypewriter(document.querySelector('.hero h1'), [
+    {t:'你好，我是',c:''},
+    {t:'董熠斌',c:'hl hl-coral'},
+    {t:'，',c:''},
+    {t:'\n',c:''},
+    {t:'一名',c:''},
+    {t:'视觉设计师',c:'hl hl-blue'}
+  ], 600);
+
+  // 关于我标题
+  setupTypewriter(document.querySelector('#page-about .about-intro h2'), [
+    {t:'关于',c:''},
+    {t:'我',c:'hl hl-blue'},
+    {t:'，用',c:''},
+    {t:'创意',c:'hl hl-coral'},
+    {t:'\n',c:''},
+    {t:'驱动设计的',c:''},
+    {t:'视觉设计师',c:'hl hl-blue'}
+  ], 400);
+})();
+</script>
+</body>
+</html>
