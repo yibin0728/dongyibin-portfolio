@@ -358,11 +358,15 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   .f-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:680px){
+  html,body{overflow-x:hidden}
   .section,.about-intro{padding:72px 0 60px}
   .nav-brand b{display:none}
-  .nav{padding:7px 8px 7px 14px;gap:4px}
-  .nav-links a{padding:7px 10px;font-size:13.5px}
-  .nav-cta{width:38px;height:38px}
+  .nav{padding:6px 8px 6px 10px;gap:4px}
+  .nav-brand,.nav-cta{flex:none}
+  .nav-cta{width:34px;height:34px}
+  .nav-links{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{padding:7px 9px;font-size:13px}
   .svc-grid{grid-template-columns:1fr}
   .skills-grid{grid-template-columns:1fr}
   .testi-box{flex-direction:column}
